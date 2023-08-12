@@ -11,5 +11,6 @@ public class Constants {
     public static final String COMPLETE_ORDER= "Your order on My Store is complete.";
     public static final String EMAIL = "email";
     public static final String PASSWORD = "password";
+    public static final String COUPON_CODE = "UDEMY-CHALLENGE";
 
 }
