@@ -23,7 +23,7 @@ public class DriverSingleton {
     }
 
     public static DriverSingleton getInstance(String driver) {
-        if(instance == null) {
+        if (instance == null) {
             instance = new DriverSingleton(driver);
         }
 
