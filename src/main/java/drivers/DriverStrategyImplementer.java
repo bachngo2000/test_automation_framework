@@ -1,18 +1,20 @@
 package drivers;
 
+import utils.Constants;
+
 public class DriverStrategyImplementer {
 
     public static DriverStrategy chooseStrategy (String strategy) {
 
         switch (strategy) {
 
-            case "drivers.Chrome":
+            case Constants.CHROME:
                 return new Chrome();
 
-            case "drivers.PhantomJs":
+            case Constants.PHANTOMJS:
                 return new PhantomJs();
 
-            case "drivers.Firefox":
+            case Constants.FIREFOX:
                 return new Firefox();
 
             default:
