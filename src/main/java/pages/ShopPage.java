@@ -1,6 +1,7 @@
 package pages;
 
 import drivers.DriverSingleton;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -34,21 +35,36 @@ public class ShopPage {
     @FindBy(css = "body > nav > div.wb4wp-wrapper > div.wb4wp-right > div > a")
     private WebElement cartButton;
 
+    @FindBy(css = "#main > nav > ul > li:nth-child(2) > a")
+    private WebElement secondPage;
+
+
     public void sortByPopularity() {
         Select selectSorting = new Select(sortingOptions);
         selectSorting.selectByVisibleText("Sort by popularity");
     }
 
     public void addProductToCart() {
-        addToCartButton.click();
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+//        addToCartButton.click();
+//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+//
+//        if (numberOfProducts.getText().contains(Constants.CART_QUANTITY)) {
+//            System.out.println("Cart has been updated");
+//        }
+//        else {
+//            System.out.println("Cart has not been updated");
+//            System.out.println(numberOfProducts.getText());
+//        }
+        ((JavascriptExecutor)driver).executeScript("arguments[0].click();", addToCartButton);
 
-        if (numberOfProducts.getText().contains(Constants.CART_QUANTITY)) {
-            System.out.println("Cart has been updated");
-        }
-        else {
-            System.out.println("Cart has not been updated");
-            System.out.println(numberOfProducts.getText());
+        for (int i = 0; i < 1000; i++) {
+            if (numberOfProducts.getText().contains(Constants.CART_QUANTITY)) {
+                System.out.println("Cart has been updated");
+                return;
+            }
+            else {
+                System.out.println("Cart has not been updated");
+            }
         }
     }
 
@@ -57,6 +73,15 @@ public class ShopPage {
         wait.until(ExpectedConditions.elementToBeClickable(cartButton));
 
         cartButton.click();
+    }
+
+    public String getNumberOfProducts() {
+        return numberOfProducts.getText();
+    }
+
+    public void goToSecondPage() {
+        ((JavascriptExecutor)driver).executeScript("arguments[0].click();", secondPage);
+
     }
 
 

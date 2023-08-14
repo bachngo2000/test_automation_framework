@@ -1,4 +1,5 @@
 import drivers.DriverSingleton;
+import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
@@ -31,6 +32,7 @@ public class Tests {
         DriverSingleton.getInstance(frameworkProperties.getProperty(Constants.BROWSER));
         driver = DriverSingleton.getDriver();
         homePage = new HomePage();
+        shopPage = new ShopPage();
         signInPage = new SignInPage();
         checkoutPage = new CheckoutPage();
         cartPage = new CartPage();
@@ -43,6 +45,20 @@ public class Tests {
         signInPage.logIn(frameworkProperties.getProperty(Constants.EMAIL), frameworkProperties.getProperty(Constants.PASSWORD));
         assertEquals(frameworkProperties.getProperty(Constants.USERNAME), homePage.getUserName());
 
+    }
+
+    @Test
+    public void testingAddingProductsToCart() {
+        driver.get(Constants.URL);
+        homePage.clickShopButton();
+        shopPage.sortByPopularity();
+        shopPage.addProductToCart();
+        assertEquals(Constants.CART_QUANTITY, shopPage.getNumberOfProducts());
+    }
+
+    @AfterClass
+    public static void closeObjects() {
+        driver.close();
     }
 
 }
