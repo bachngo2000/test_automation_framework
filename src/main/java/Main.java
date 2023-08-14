@@ -18,10 +18,13 @@ public class Main {
         CartPage cartPage = new CartPage();
         CheckoutPage checkoutPage = new CheckoutPage();
 
+        String username = frameworkProperties.getProperty("username");
+
         String password = frameworkProperties.getProperty("password");
 
+
         homePage.clickSignIn();
-        signInPage.logIn("bach", password);
+        signInPage.logIn(username, password);
 
         if (homePage.getUserName().equals("Hello, Bach")) {
             System.out.println("Test Passed");
