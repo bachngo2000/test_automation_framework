@@ -18,8 +18,10 @@ public class Main {
         CartPage cartPage = new CartPage();
         CheckoutPage checkoutPage = new CheckoutPage();
 
+        String password = frameworkProperties.getProperty("password");
+
         homePage.clickSignIn();
-        signInPage.logIn("bach", "123456");
+        signInPage.logIn("bach", password);
 
         if (homePage.getUserName().equals("Hello, Bach")) {
             System.out.println("Test Passed");
@@ -37,6 +39,14 @@ public class Main {
         cartPage.proceedToCheckOut();
         checkoutPage.provideBillingDetails();
         checkoutPage.placeOrder();
+
+        if (checkoutPage.getOrderStatus().equals("Order received")) {
+            System.out.println("Order successfully placed");
+        }
+        else {
+            System.out.println("Something's wrong with order placement!");
+            System.out.println(checkoutPage.getOrderStatus());
+        }
 
         homePage.clickLogOut();
 

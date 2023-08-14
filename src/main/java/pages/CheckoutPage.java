@@ -52,6 +52,9 @@ public class CheckoutPage {
     @FindBy(css = "#post-207 > header > h1")
     private WebElement orderStatus;
 
+    @FindBy(css = "#post-207 > content > div > div.woocommerce > div > p")
+    private WebElement orderMessage;
+
     public void provideBillingDetails() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(Constants.TIMEOUT));
         wait.until(ExpectedConditions.visibilityOf(address));
@@ -76,6 +79,12 @@ public class CheckoutPage {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(Constants.TIMEOUT));
         wait.until(ExpectedConditions.elementToBeClickable(placeOrder));
         placeOrder.click();
+    }
+
+    public String getOrderStatus() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        wait.until(ExpectedConditions.visibilityOf(orderMessage));
+        return orderStatus.getText();
     }
 
 
