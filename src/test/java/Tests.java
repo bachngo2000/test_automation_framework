@@ -56,6 +56,20 @@ public class Tests {
         assertEquals(Constants.CART_QUANTITY, shopPage.getNumberOfProducts());
     }
 
+    @Test
+    public void testingTheFullBuyingProcess() {
+        driver.get(Constants.URL);
+        homePage.clickShopButton();
+        shopPage.sortByPopularity();
+        shopPage.addProductToCart();
+        shopPage.proceedToCheckOut();
+        cartPage.proceedToCheckOut();
+        checkoutPage.providePersonalInfo();
+        checkoutPage.provideBillingDetails();
+        checkoutPage.placeOrder();
+        assertEquals("Order received", checkoutPage.getOrderStatus());
+    }
+
     @AfterClass
     public static void closeObjects() {
         driver.close();

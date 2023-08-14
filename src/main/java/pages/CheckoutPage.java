@@ -1,6 +1,7 @@
 package pages;
 
 import drivers.DriverSingleton;
+import io.opentelemetry.api.baggage.propagation.W3CBaggagePropagator;
 import org.checkerframework.checker.index.qual.SameLen;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -55,6 +56,10 @@ public class CheckoutPage {
     @FindBy(css = "#post-207 > content > div > div.woocommerce > div > p")
     private WebElement orderMessage;
 
+    @FindBy(id = "billing_email")
+    private WebElement email;
+
+
     public void provideBillingDetails() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(Constants.TIMEOUT));
         wait.until(ExpectedConditions.visibilityOf(address));
@@ -76,7 +81,7 @@ public class CheckoutPage {
     }
 
     public void placeOrder() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(Constants.TIMEOUT));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         wait.until(ExpectedConditions.elementToBeClickable(placeOrder));
         placeOrder.click();
     }
@@ -87,5 +92,12 @@ public class CheckoutPage {
         return orderStatus.getText();
     }
 
+    public void providePersonalInfo() {
+        firstName.sendKeys("Bach");
+
+        lastName.sendKeys("Ngo");
+
+        email.sendKeys("bach21@outlook.com");
+    }
 
 }
