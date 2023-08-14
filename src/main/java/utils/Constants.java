@@ -12,5 +12,9 @@ public class Constants {
     public static final String EMAIL = "email";
     public static final String PASSWORD = "password";
     public static final String COUPON_CODE = "UDEMY-CHALLENGE";
+    public static final String URL = "https://bitheap.tech/";
+    public static final String USERNAME = "username";
+    public static final String BROWSER = "browser";
+
 
 }
