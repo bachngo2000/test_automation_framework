@@ -1,7 +1,6 @@
 import drivers.DriverSingleton;
 import org.openqa.selenium.WebDriver;
-import pages.HomePage;
-import pages.SignInPage;
+import pages.*;
 import utils.FrameworkProperties;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
@@ -15,6 +14,9 @@ public class Main {
 
         HomePage homePage = new HomePage();
         SignInPage signInPage = new SignInPage();
+        ShopPage shopPage = new ShopPage();
+        CartPage cartPage = new CartPage();
+        CheckoutPage checkoutPage = new CheckoutPage();
 
         homePage.clickSignIn();
         signInPage.logIn("bach", "123456");
@@ -27,6 +29,14 @@ public class Main {
             System.out.println("Test Failed");
             System.out.println(homePage.getUserName());
         }
+
+        homePage.clickShopButton();
+        shopPage.sortByPopularity();
+        shopPage.addProductToCart();
+        shopPage.proceedToCheckOut();
+        cartPage.proceedToCheckOut();
+        checkoutPage.provideBillingDetails();
+        checkoutPage.placeOrder();
 
         homePage.clickLogOut();
 

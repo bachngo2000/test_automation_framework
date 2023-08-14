@@ -23,7 +23,7 @@ public class HomePage {
     @FindBy(css = "#menu-item-1311 > a")
     private WebElement signInButton;
 
-    @FindBy(id = "menu-item-312")
+    @FindBy(id = "menu-item-1310")
     private WebElement shopButton;
 
     @FindBy(id = "menu-item-1314")
