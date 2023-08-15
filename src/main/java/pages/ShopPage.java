@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.Constants;
+import utils.Utils;
 
 import java.time.Duration;
 
@@ -64,6 +65,7 @@ public class ShopPage {
             }
             else {
                 System.out.println("Cart has not been updated");
+                Utils.takeScreenShot();
             }
         }
     }
