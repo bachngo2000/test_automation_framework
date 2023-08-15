@@ -91,11 +91,14 @@ public class CheckoutPage {
     }
 
     public void providePersonalInfo() {
-        firstName.sendKeys("Bach");
+        if (firstName.getAttribute("value").isEmpty()) {
 
-        lastName.sendKeys("Ngo");
+            firstName.sendKeys("Bach");
 
-        email.sendKeys("bach21@outlook.com");
+            lastName.sendKeys("Ngo");
+
+            email.sendKeys("bach21@outlook.com");
+        }
     }
 
 }
