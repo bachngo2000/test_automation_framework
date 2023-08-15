@@ -1,8 +1,7 @@
-package pages;
+package automation.pages;
 
-import drivers.DriverSingleton;
-import io.opentelemetry.api.baggage.propagation.W3CBaggagePropagator;
-import org.checkerframework.checker.index.qual.SameLen;
+import automation.drivers.DriverSingleton;
+import automation.utils.Constants;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,7 +9,6 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import utils.Constants;
 
 import java.time.Duration;
 

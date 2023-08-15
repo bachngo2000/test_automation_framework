@@ -1,4 +1,4 @@
-package drivers;
+package automation.drivers;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;

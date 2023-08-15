@@ -1,6 +1,7 @@
-package drivers;
+package automation.drivers;
 
-import utils.Constants;
+import automation.drivers.strategies.Chrome;
+import automation.utils.Constants;
 
 public class DriverStrategyImplementer {
 

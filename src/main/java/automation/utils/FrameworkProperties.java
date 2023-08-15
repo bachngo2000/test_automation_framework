@@ -1,4 +1,4 @@
-package utils;
+package automation.utils;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;

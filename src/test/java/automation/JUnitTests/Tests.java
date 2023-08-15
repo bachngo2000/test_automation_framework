@@ -1,4 +1,6 @@
-import drivers.DriverSingleton;
+package automation.JUnitTests;
+
+import automation.drivers.DriverSingleton;
 //import org.junit.jupiter.api.AfterAll;
 //import org.junit.jupiter.api.BeforeAll;
 import org.junit.*;
@@ -7,9 +9,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.openqa.selenium.WebDriver;
-import pages.*;
-import utils.Constants;
-import utils.FrameworkProperties;
+import automation.pages.*;
+import automation.utils.Constants;
+import automation.utils.FrameworkProperties;
 import org.junit.runners.MethodSorters;
 
 import static org.junit.Assert.assertEquals;
@@ -93,5 +95,4 @@ public class Tests {
     public static void closeObjects() {
         driver.close();
     }
-
 }

@@ -1,6 +1,7 @@
-package pages;
+package automation.pages;
 
-import drivers.DriverSingleton;
+import automation.drivers.DriverSingleton;
+import automation.utils.Constants;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,8 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import utils.Constants;
-import utils.Utils;
+import automation.utils.Utils;
 
 import java.time.Duration;
 

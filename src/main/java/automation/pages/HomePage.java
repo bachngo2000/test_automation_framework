@@ -1,7 +1,6 @@
-package pages;
+package automation.pages;
 
-import drivers.DriverSingleton;
-import net.bytebuddy.dynamic.scaffold.TypeWriter;
+import automation.drivers.DriverSingleton;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -27,6 +26,7 @@ public class HomePage {
     private WebElement shopButton;
 
     @FindBy(id = "menu-item-1314")
+//    @FindBy(css = "#menu-item-1314 > a")
     private WebElement username;
 
     @FindBy(css = "#menu-item-1313 > a")
@@ -45,6 +45,8 @@ public class HomePage {
     }
 
     public String getUserName() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.visibilityOf(username));
         return username.getText();
     }
 
